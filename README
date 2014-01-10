@@ -1,0 +1,116 @@
+------------------
+<list>
+  <Pair>
+    <a class="string">something</a>
+    <b class="string">fresh</b>
+  </Pair>
+  <Pair reference="../Pair[1]"/>
+  <Pair>
+    <a class="Pair" reference="../../Pair[1]"/>
+    <b class="string">fresh</b>
+  </Pair>
+</list>
+------------------
+<list id="1">
+  <Pair id="2">
+    <a class="string">something</a>
+    <b class="string">fresh</b>
+  </Pair>
+  <Pair reference="2"/>
+  <Pair id="3">
+    <a class="Pair" reference="2"/>
+    <b class="string">fresh</b>
+  </Pair>
+</list>
+------------------
+<list>
+  <Pair>
+    <a class="string">something</a>
+    <b class="string">fresh</b>
+  </Pair>
+  <Pair reference="/list/Pair"/>
+  <Pair>
+    <a class="Pair" reference="/list/Pair"/>
+    <b class="string">fresh</b>
+  </Pair>
+</list>
+------------------
+[
+  {
+    "a": {
+      "@class": "string",
+      "$": "something"
+    },
+    "b": {
+      "@class": "string",
+      "$": "fresh"
+    }
+  },
+  {
+    "@reference": "../Pair[1]"
+  },
+  {
+    "a": {
+      "@class": "Pair",
+      "@reference": "../../Pair[1]"
+    },
+    "b": {
+      "@class": "string",
+      "$": "fresh"
+    }
+  }
+]
+------------------
+[
+  {
+    "@id": "2",
+    "a": {
+      "@class": "string",
+      "$": "something"
+    },
+    "b": {
+      "@class": "string",
+      "$": "fresh"
+    }
+  },
+  {
+    "@reference": "2"
+  },
+  {
+    "@id": "3",
+    "a": {
+      "@class": "Pair",
+      "@reference": "2"
+    },
+    "b": {
+      "@class": "string",
+      "$": "fresh"
+    }
+  }
+]
+------------------
+[
+  {
+    "a": {
+      "@class": "string",
+      "$": "something"
+    },
+    "b": {
+      "@class": "string",
+      "$": "fresh"
+    }
+  },
+  {
+    "@reference": "/list/Pair"
+  },
+  {
+    "a": {
+      "@class": "Pair",
+      "@reference": "/list/Pair"
+    },
+    "b": {
+      "@class": "string",
+      "$": "fresh"
+    }
+  }
+]
